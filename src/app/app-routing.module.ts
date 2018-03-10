@@ -6,7 +6,7 @@ import { CertificadoComponent } from './certificado/certificado.component';
 
 const routes: Routes = [
   {path: 'singin', component: SingInComponent},
-  {path: 'vota', component: SingInComponent},
+  {path: 'vota', component: VotaComponent},
   {path: 'certificado', component: CertificadoComponent},
   {path: '', component: SingInComponent},
   {path: '**', component: SingInComponent}
