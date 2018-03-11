@@ -2,6 +2,7 @@ import { Component, OnInit, HostBinding } from '@angular/core';
 
 import { TodoService } from '../services/todo.service';
 import { RouterLink, Router } from '@angular/router';
+import { VotaComponent } from '../vota/vota.component';
 
 @Component({
   selector: 'sing-in',
@@ -16,7 +17,13 @@ export class SingInComponent implements OnInit {
   }
 
   getAuthorization(){
-    this._router.navigate(['/vota']);
+    if(this.todoService.getAuthorization(
+      (<HTMLInputElement>document.getElementById("numDocument")).value,
+      (<HTMLInputElement>document.getElementById("addressEmail")).value,
+      (<HTMLInputElement>document.getElementById("password")).value
+    )){
+      this.todoService.dontBack();
+      this._router.navigate(['/vota']);
+    }    
   }
-
 }

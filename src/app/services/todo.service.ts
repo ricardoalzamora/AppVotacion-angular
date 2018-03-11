@@ -1,14 +1,22 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { parse } from 'url';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class TodoService {
 
   todoList: AngularFireList<any>;
 
-  constructor(private firebasedb: AngularFireDatabase) {
+  constructor(private firebasedb: AngularFireDatabase, private _router: Router) {
 
+  }
+
+  dontBack(){
+    history.pushState(null, null, location.href);
+    window.onpopstate = function () {
+        history.go(1);
+    };
   }
 
   getName(code: string) {
@@ -24,21 +32,28 @@ export class TodoService {
   }
 
   addTodo(title: string) {
-    alert("Votará: " + this.getName(title));
-    this.todoList.push({
-      title: title,
-    })
+    if(confirm("Votar por " + this.getName(title))){
+      this._router.navigate(['/certificado']);
+      this.dontBack();
+      this.todoList.push({
+        title: title,
+      })
+    }
+    
   }
 
-  getAuthorization(numDocument: number, addressEmail: string, password: string){
-    alert("yes");
+  getAuthorization(numDocument: any, addressEmail: any, password: any){
     var request = new XMLHttpRequest();
     request.open("GET", "../assets/json/authorization.json", false);
-    request.send(null)
+    request.send(null);
+    /*alert(numDocument);
+    alert(addressEmail);
+    alert(password);*/
     var my_JSON_object = JSON.parse(request.responseText);
-    if(my_JSON_object[numDocument] != null && my_JSON_object[addressEmail] != null && my_JSON_object[password] != null){
-      alert("yes");
+    if(my_JSON_object[numDocument][0] == addressEmail && my_JSON_object[numDocument][1] == password){
+      return true;
     }
+    return false;
   }
 
 }
