@@ -15,6 +15,7 @@ export class TodoService {
   }
 
   addTodo(title: string){
+    alert("");
     this.todoList.push({
       title: title,
     })

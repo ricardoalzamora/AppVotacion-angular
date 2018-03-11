@@ -1,34 +1,36 @@
 <main>
   <div class="primary-div">
     <section>
-      <div class="secondary-div">
-        <img src="../assets/image/clara_aida.jpg" alt="">
-      </div>
+      <button (click)="addTodo('2018claaid')">
+        <img src="../assets/image/clara_aida.jpg" alt="Clari y Aida">
+      </button>
     </section>
     <section>
-      <div class="secondary-div">
-        <img src="../assets/image/enrique_isabel.jpg" alt="">
-      </div>
+      <button (click)="addTodo('2018enrisa')">
+        <img src="../assets/image/enrique_isabel.jpg" alt="Enrique e Isabel">
+      </button>
     </section>
     <section>
-      <div class="secondary-div">
-        <img src="../assets/image/juan_german.jpg" alt="">
-      </div>
+      <button (click)="addTodo('2018juager')">
+        <img src="../assets/image/juan_german.jpg" alt="Juan y German">
+      </button>
     </section>
     <section>
-      <div class="secondary-div">
-        <img src="../assets/image/martha_camilo.jpg" alt="">
-      </div>
+      <button (click)="addTodo('2018marcam')">
+        <img src="../assets/image/martha_camilo.jpg" alt="Martha y Camilo">
+      </button>
     </section>
     <section>
-      <div class="secondary-div">
-        <img src="../assets/image/oscar_carlos.jpg" alt="">
-      </div>
+      <button (click)="addTodo('2018osccar')">
+        <img src="../assets/image/oscar_carlos.jpg" alt="Oscar y Carlos">
+      </button>
     </section>
     <section>
-      <div id="voto-blanco">
+      <button id="voto-blanco" (click)="addTodo('blanco')">
         <p>VOTO EN BLANCO</p>
-      </div>
+      </button>
     </section>
   </div>
+
+  <button type="button" id="btn-cancel" class="btn btn-danger" routerLink="/" routerLinkActive="active" >Cancelar</button>
 </main>

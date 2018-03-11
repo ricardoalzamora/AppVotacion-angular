@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { TodoService } from '../services/todo.service';
+
 @Component({
   selector: 'app-vota',
   templateUrl: './vota.component.html',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VotaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private todoService: TodoService) { }
 
   ngOnInit() {
+  }
+
+  addTodo(itemTitle){
+    this.todoService.addTodo(itemTitle);
   }
 
 }
