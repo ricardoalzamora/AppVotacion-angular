@@ -2,7 +2,7 @@ button:active{
     border: crimson 5px solid;
 }
 .primary-div{
-    width: 70%;
+    width: 75%;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
