@@ -1,6 +1,7 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 
-
+import { TodoService } from '../services/todo.service';
+import { RouterLink, Router } from '@angular/router';
 
 @Component({
   selector: 'sing-in',
@@ -9,9 +10,13 @@ import { Component, OnInit, HostBinding } from '@angular/core';
 })
 export class SingInComponent implements OnInit {
 
-  constructor() { }
+  constructor(private todoService: TodoService, private _router: Router) { }
 
   ngOnInit() {
+  }
+
+  getAuthorization(){
+    this._router.navigate(['/vota']);
   }
 
 }

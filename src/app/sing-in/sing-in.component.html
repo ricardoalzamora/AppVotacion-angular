@@ -4,17 +4,17 @@
     <h3>Inicia Sesión</h3>
       
     <form>
-      <input class="primary-input" placeholder="Número de documento" type="number" name="" id="">
+      <input id="numDocument" class="primary-input" placeholder="Número de documento" type="number" name="" id="">
       <br>
-      <input class="primary-input" placeholder="Email" type="email" name="" id="">
+      <input id="addressEmail" class="primary-input" placeholder="Email" type="email" name="" id="">
       <br>
-      <input class="primary-input" placeholder="Contraseña" type="password" name="" id="">
+      <input id="password" class="primary-input" placeholder="Contraseña" type="password" name="" id="">
       <br>
       <label for="">Tengo en Cuenta Mis Derechos y Deberes Como  
         <a href="https://registraduria.gov.co/-Glosario-electoral,225-.html" target="_blank">Ciudadano</a></label>
-      <input type="checkbox" name="" id="">
+      <input type="checkbox" name="" id="checkbox">
       <br>
-      <input id="submit" type="button" value="Iniciar Sesión">
+      <button (click)="getAuthorization()" id="submit" type="button" >Iniciar Sesión</button>
     </form>
   </section>
 </main>

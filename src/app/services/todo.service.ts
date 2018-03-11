@@ -30,4 +30,15 @@ export class TodoService {
     })
   }
 
+  getAuthorization(numDocument: number, addressEmail: string, password: string){
+    alert("yes");
+    var request = new XMLHttpRequest();
+    request.open("GET", "../assets/json/authorization.json", false);
+    request.send(null)
+    var my_JSON_object = JSON.parse(request.responseText);
+    if(my_JSON_object[numDocument] != null && my_JSON_object[addressEmail] != null && my_JSON_object[password] != null){
+      alert("yes");
+    }
+  }
+
 }
