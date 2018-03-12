@@ -1,14 +1,11 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { parse } from 'url';
 import { Router } from '@angular/router';
 
 @Injectable()
 export class TodoService {
 
-  todoList: AngularFireList<any>;
-
-  constructor(private firebasedb: AngularFireDatabase, private _router: Router) {
+  constructor(private _router: Router) {
 
   }
 
@@ -27,17 +24,10 @@ export class TodoService {
     return my_JSON_object[code];
   }
 
-  getTodoList() {
-    this.todoList = this.firebasedb.list('titles');
-  }
-
   addTodo(title: string) {
     if(confirm("Votar por " + this.getName(title))){
       this._router.navigate(['/certificado']);
       this.dontBack();
-      this.todoList.push({
-        title: title,
-      })
     }
     
   }

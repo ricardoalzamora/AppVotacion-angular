@@ -26,6 +26,8 @@ export class SingInComponent implements OnInit {
     )){
       this.todoService.dontBack();
       this._router.navigate(['/vota']);
+    }else{
+      alert("Verifica los datos");
     }    
   }
 }
