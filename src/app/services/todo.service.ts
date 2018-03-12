@@ -22,7 +22,7 @@ export class TodoService {
   getName(code: string) {
     var request = new XMLHttpRequest();
     request.open("GET", "../assets/json/candidates.json", false);
-    request.send(null)
+    request.send(null);
     var my_JSON_object = JSON.parse(request.responseText);
     return my_JSON_object[code];
   }
@@ -46,11 +46,10 @@ export class TodoService {
     var request = new XMLHttpRequest();
     request.open("GET", "../assets/json/authorization.json", false);
     request.send(null);
-    /*alert(numDocument);
-    alert(addressEmail);
-    alert(password);*/
     var my_JSON_object = JSON.parse(request.responseText);
     if(my_JSON_object[numDocument][0] == addressEmail && my_JSON_object[numDocument][1] == password){
+      localStorage["numDocument"] = (<HTMLInputElement>document.getElementById("numDocument")).value;
+      localStorage["name"] = my_JSON_object[numDocument][2];
       return true;
     }
     return false;

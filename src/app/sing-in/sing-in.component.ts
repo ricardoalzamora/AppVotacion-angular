@@ -11,13 +11,15 @@ import { VotaComponent } from '../vota/vota.component';
 })
 export class SingInComponent implements OnInit {
 
-  constructor(private todoService: TodoService, private _router: Router) { }
+  
+  constructor(private todoService: TodoService, private _router: Router) {
+  }
 
   ngOnInit() {
   }
 
   getAuthorization(){
-    if(this.todoService.getAuthorization(
+    if((<HTMLInputElement>document.getElementById("checkbox")).checked && this.todoService.getAuthorization(
       (<HTMLInputElement>document.getElementById("numDocument")).value,
       (<HTMLInputElement>document.getElementById("addressEmail")).value,
       (<HTMLInputElement>document.getElementById("password")).value
