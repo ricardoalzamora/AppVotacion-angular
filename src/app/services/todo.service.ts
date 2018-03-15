@@ -67,4 +67,15 @@ export class TodoService {
     return false;
   }
 
+  getAuthorizationJurado(numDocument: any, password: any) {
+    var request = new XMLHttpRequest();
+    request.open("GET", "../assets/json/jurado.json", false);
+    request.send(null);
+    var my_JSON_object = JSON.parse(request.responseText);
+    if (my_JSON_object[numDocument][0] == password) {
+      return true;
+    }
+    return false;
+  }
+
 }
