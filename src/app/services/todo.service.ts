@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { parse } from 'url';
 import { Router } from '@angular/router';
+import swal from 'sweetalert2'
 
 @Injectable()
 export class TodoService {
@@ -9,10 +10,35 @@ export class TodoService {
 
   }
 
-  dontBack(){
+  showAlert() {
+    swal(
+      'Error!',
+      'Verifica los Datos',
+      'error'
+    )
+  }
+
+  showConfirm(name) {
+    swal({
+      title: 'Seguro',
+      text: "Vatará por " + name,
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, Votar!'
+    }).then((result) => {
+      if (result.value) {
+        this._router.navigate(['/certificado']);
+        this.dontBack();
+      }
+    })
+  }
+
+  dontBack() {
     history.pushState(null, null, location.href);
     window.onpopstate = function () {
-        history.go(1);
+      history.go(1);
     };
   }
 
@@ -25,19 +51,15 @@ export class TodoService {
   }
 
   addTodo(title: string) {
-    if(confirm("Votar por " + this.getName(title))){
-      this._router.navigate(['/certificado']);
-      this.dontBack();
-    }
-    
+    this.showConfirm(this.getName(title));
   }
 
-  getAuthorization(numDocument: any, addressEmail: any, password: any){
+  getAuthorization(numDocument: any, addressEmail: any, password: any) {
     var request = new XMLHttpRequest();
     request.open("GET", "../assets/json/authorization.json", false);
     request.send(null);
     var my_JSON_object = JSON.parse(request.responseText);
-    if(my_JSON_object[numDocument][0] == addressEmail && my_JSON_object[numDocument][1] == password){
+    if (my_JSON_object[numDocument][0] == addressEmail && my_JSON_object[numDocument][1] == password) {
       localStorage["numDocument"] = (<HTMLInputElement>document.getElementById("numDocument")).value;
       localStorage["name"] = my_JSON_object[numDocument][2];
       return true;

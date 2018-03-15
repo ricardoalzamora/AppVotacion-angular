@@ -3,7 +3,8 @@ import { Component, OnInit, HostBinding } from '@angular/core';
 import { TodoService } from '../services/todo.service';
 import { RouterLink, Router } from '@angular/router';
 import { VotaComponent } from '../vota/vota.component';
-
+import * as $ from 'jquery';
+//import swal from 'sweetalert2'
 @Component({
   selector: 'sing-in',
   templateUrl: './sing-in.component.html',
@@ -27,7 +28,7 @@ export class SingInComponent implements OnInit {
       this.todoService.dontBack();
       this._router.navigate(['/vota']);
     }else{
-      alert("Verifica los datos");
+      this.todoService.showAlert();
     }    
   }
 }
