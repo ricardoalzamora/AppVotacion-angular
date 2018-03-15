@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import {environment} from '../environments/environment';
 import { TodoService } from './services/todo.service';
 import { JuradoComponent } from './jurado/jurado.component';
+import { JuradoViewComponent } from './jurado-view/jurado-view.component';
 
 export const firebaseConfig = {
   apiKey: '',
@@ -19,7 +20,8 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     routingComponents,
-    JuradoComponent
+    JuradoComponent,
+    JuradoViewComponent
   ],
   imports: [
     BrowserModule,
