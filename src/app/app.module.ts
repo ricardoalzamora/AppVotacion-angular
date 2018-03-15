@@ -5,6 +5,7 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {environment} from '../environments/environment';
 import { TodoService } from './services/todo.service';
+import { JuradoComponent } from './jurado/jurado.component';
 
 export const firebaseConfig = {
   apiKey: '',
@@ -17,7 +18,8 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents
+    routingComponents,
+    JuradoComponent
   ],
   imports: [
     BrowserModule,
