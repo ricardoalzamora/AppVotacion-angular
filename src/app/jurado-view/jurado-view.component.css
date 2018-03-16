@@ -1,0 +1,11 @@
+#list-votantes{
+    margin: auto;
+    width: 50%;
+}
+@media only screen and (max-width: 600px) {
+    #list-votantes{
+        margin: auto;
+        width: 100%;
+    }
+    
+}
