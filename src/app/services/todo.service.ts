@@ -54,6 +54,10 @@ export class TodoService {
     this.showConfirm(this.getName(title));
   }
 
+  showNav(){
+    document.getElementById("navbarId").style.visibility = "visible";
+  }
+
   getAuthorization(numDocument: any, addressEmail: any, password: any) {
     var request = new XMLHttpRequest();
     request.open("GET", "../assets/json/authorization.json", false);
@@ -62,6 +66,7 @@ export class TodoService {
     if (my_JSON_object[numDocument][0] == addressEmail && my_JSON_object[numDocument][1] == password) {
       localStorage["numDocument"] = (<HTMLInputElement>document.getElementById("numDocument")).value;
       localStorage["name"] = my_JSON_object[numDocument][2];
+      document.getElementById("navbarId").style.visibility = "hidden";
       return true;
     }
     return false;
@@ -73,6 +78,7 @@ export class TodoService {
     request.send(null);
     var my_JSON_object = JSON.parse(request.responseText);
     if (my_JSON_object[numDocument][0] == password) {
+      document.getElementById("navbarId").style.visibility = "hidden";
       return true;
     }
     return false;

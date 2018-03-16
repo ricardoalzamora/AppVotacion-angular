@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { RouterLink, Router } from '@angular/router';
+
 @Component({
   selector: 'app-jurado-view',
   templateUrl: './jurado-view.component.html',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JuradoViewComponent implements OnInit {
   public votantes = this.getVotantes();
-  constructor() {
+  constructor(private _router: Router) {
    }
 
    getVotantes(){
@@ -21,6 +23,11 @@ export class JuradoViewComponent implements OnInit {
     $.each( this.votantes, function( key, value) {
       $("ul").append("<li class='list-group-item'>" + key + ": " + value[0]+ " " + value[2] +  "</li>");
     });
+   }
+
+   exit(){
+    document.getElementById("navbarId").style.visibility = "visible";
+    this._router.navigate(['/']);
    }
 
   ngOnInit() {

@@ -9,3 +9,8 @@
     }
     
 }
+
+#btn-exit{
+    float: right;
+    margin: auto 10% auto auto;
+}
