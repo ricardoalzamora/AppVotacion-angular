@@ -4,6 +4,10 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {environment} from '../environments/environment';
+
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireModule } from  'angularfire2'
+
 import { TodoService } from './services/todo.service';
 import { JuradoComponent } from './jurado/jurado.component';
 import { JuradoViewComponent } from './jurado-view/jurado-view.component';
@@ -26,6 +30,8 @@ export const firebaseConfig = {
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
   ],
   providers: [
     TodoService
