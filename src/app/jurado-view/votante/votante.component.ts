@@ -11,7 +11,7 @@ import { Votante } from '../../models/votante'
 })
 export class VotanteComponent implements OnInit {
 
-  constructor( private votanteService: VotanteService) { }
+  constructor(public votanteService: VotanteService) { }
 
   ngOnInit() {
     this.votanteService.getVotantes();
