@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { FormsModule } from '@angular/forms';
+
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {environment} from '../environments/environment';
@@ -11,7 +13,10 @@ import { AngularFireModule } from  'angularfire2'
 import { TodoService } from './services/todo.service';
 import { JuradoComponent } from './jurado/jurado.component';
 import { JuradoViewComponent } from './jurado-view/jurado-view.component';
+import { VotanteListComponent } from './jurado-view/votante-list/votante-list.component';
+import { VotanteComponent } from './jurado-view/votante/votante.component';
 
+import {VotanteService} from './services-votante/votante.service';
 export const firebaseConfig = {
   apiKey: '',
   authDomain: '',
@@ -25,16 +30,20 @@ export const firebaseConfig = {
     AppComponent,
     routingComponents,
     JuradoComponent,
-    JuradoViewComponent
+    JuradoViewComponent,
+    VotanteListComponent,
+    VotanteComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    FormsModule
   ],
   providers: [
-    TodoService
+    TodoService,
+    VotanteService
   ],
   bootstrap: [AppComponent]
 })

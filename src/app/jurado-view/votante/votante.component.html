@@ -1,0 +1,39 @@
+<div class="card">
+  <div class="card-body">
+    <form #votanteForm="ngForm" (ngSubmit)='onSubmit(votanteForm)'>
+      <input type="hidden" name="$key" #$key="ngModel" [(ngModel)] = "votanteService.selectVotante.$key">
+
+      <div class="form-group">
+          <input type="hidden" class="form-control" name="document" #document="ngModel" [(ngModel)]="votanteService.selectVotante.document" placeholder="Agrega Documento de Votante">
+  
+        </div>
+
+      <div class="form-group">
+        <input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="votanteService.selectVotante.name" placeholder="Agrega Nombre de Votante">
+
+      </div>
+
+      <div class="form-group">
+        <input type="text" class="form-control" name="firstlastname" #firstlastname="ngModel" [(ngModel)]="votanteService.selectVotante.firstlastname"
+          placeholder="Agrega Primer Apellido">
+
+      </div>
+
+      <div class="form-group">
+        <input type="text" class="form-control" name="secondlastname" #secondlastname="ngModel" [(ngModel)]="votanteService.selectVotante.secondlastname"
+          placeholder="Agregar Segundo Apellido">
+
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">
+          <i class="far fa-save"></i> Guardar Cambios
+        </button>
+        <button class="btn btn-secondary" type="reset" (click)="resetForm(votanteForm)">
+          <i class="fas fa-sync-alt"></i>Limpiar
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>

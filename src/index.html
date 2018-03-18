@@ -1,17 +1,33 @@
 <!doctype html>
 <html lang="es">
+
 <head>
   <meta charset="utf-8">
   <meta author="Ricardo Alzamora">
   <title>VotacionSPA</title>
   <base href="/">
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
   <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+  <link rel="stylesheet" href="bower_components/dist/angular-clock.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
+
 <body>
+  <p id="clock"></p>
+  <script>
+    var myVar = setInterval(function () {
+      myTimer();
+    }, 1000);
+
+    function myTimer() {
+      var d = new Date();
+      document.getElementById("clock").innerHTML = d.toLocaleTimeString();
+    }
+  </script>
   <app-root></app-root>
 </body>
+
 </html>

@@ -11,5 +11,6 @@ export class CertificadoComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 }

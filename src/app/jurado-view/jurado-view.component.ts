@@ -10,28 +10,30 @@ import { RouterLink, Router } from '@angular/router';
 export class JuradoViewComponent implements OnInit {
   public votantes = this.getVotantes();
   constructor(private _router: Router) {
-   }
+  }
 
-   getVotantes(){
+  getVotantes() {
     var request = new XMLHttpRequest();
     request.open("GET", "../assets/json/authorization.json", false);
     request.send(null);
     return JSON.parse(request.responseText);
-   }
+  }
 
-   addVotantes(){
-    $.each( this.votantes, function( key, value) {
-      $("ul").append("<li class='list-group-item'>" + key + ": " + value[0]+ " " + value[2] +  "</li>");
+  addVotantes() {
+    $.each(this.votantes, function (key, value) {
+      $("ul").append("<li class='list-group-item'>" + key + ": " + value[0] + " " + value[2] + "</li>");
     });
-   }
+  }
 
-   exit(){
+  exit() {
     document.getElementById("navbarId").style.visibility = "visible";
     this._router.navigate(['/']);
-   }
+  }
 
   ngOnInit() {
-    this.addVotantes();
+    this.addVotantes();  
   }
+
+  
 
 }

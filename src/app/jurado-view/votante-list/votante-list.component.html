@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-body">
+    <h6 class="text-center">Lista de Votantes</h6>
+  </div>
+  <table class="table table-sm table-hover">
+    <tbody>
+      <tr (click)="verificarVotacion(votante)" *ngFor='let votante of votanteList'>
+        <td>{{votante.document}}</td>
+        <td>{{votante.name}}</td>
+        <td>{{votante.firstlastname}}</td>
+        <td>{{votante.secondlastname}}</td>
+        <td>
+          <a class="btn btn-secondary text-white" (click)="onEdit(votante)">
+            <i class="fas fa-edit"></i>
+          </a>
+          <!--<a class="btn btn-danger text-white" (click)="onDelete(votante.$key)">
+            <i class=" fas fa-trash-alt"></i>
+          </a>-->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
