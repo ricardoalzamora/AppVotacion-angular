@@ -11,6 +11,6 @@
 }
 
 #btn-exit{
-    float: right;
+    float: initial;
     margin: auto 10% auto auto;
 }

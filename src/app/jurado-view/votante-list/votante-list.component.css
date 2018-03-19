@@ -1,3 +1,7 @@
 tr:hover { 
     cursor: pointer;
 }
+
+table{
+    margin: 2% auto auto auto;
+}

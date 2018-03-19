@@ -17,6 +17,7 @@ import { VotanteListComponent } from './jurado-view/votante-list/votante-list.co
 import { VotanteComponent } from './jurado-view/votante/votante.component';
 
 import {VotanteService} from './services-votante/votante.service';
+import { FilterPipe } from './filter.pipe';
 export const firebaseConfig = {
   apiKey: '',
   authDomain: '',
@@ -32,7 +33,8 @@ export const firebaseConfig = {
     JuradoComponent,
     JuradoViewComponent,
     VotanteListComponent,
-    VotanteComponent
+    VotanteComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

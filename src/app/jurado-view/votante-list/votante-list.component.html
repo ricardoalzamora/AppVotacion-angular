@@ -2,9 +2,10 @@
   <div class="card-body">
     <h6 class="text-center">Lista de Votantes</h6>
   </div>
+  <input class="form-control" placeholder="Buscar por Documento" type="text" name="search" [(ngModel)] = "search">
   <table class="table table-sm table-hover">
     <tbody>
-      <tr (click)="verificarVotacion(votante)" *ngFor='let votante of votanteList'>
+      <tr (click)="verificarVotacion(votante)" *ngFor='let votante of votanteList | filter:search'>
         <td>{{votante.document}}</td>
         <td>{{votante.name}}</td>
         <td>{{votante.firstlastname}}</td>

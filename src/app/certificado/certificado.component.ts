@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-certificado',
@@ -8,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 export class CertificadoComponent implements OnInit {
   numDocument = localStorage['numDocument'];
   name = localStorage['name'];
-  constructor() { }
+  constructor(private _router: Router) { }
 
   ngOnInit() {
     
+  }
+
+  exit() {
+    document.getElementById("navbarId").style.visibility = "visible";
+    this._router.navigate(['/']);
   }
 }
