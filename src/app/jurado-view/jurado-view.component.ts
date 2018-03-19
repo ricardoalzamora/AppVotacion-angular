@@ -32,8 +32,6 @@ export class JuradoViewComponent implements OnInit {
 
   ngOnInit() {
     this.addVotantes();  
-  }
-
-  
+  }  
 
 }
