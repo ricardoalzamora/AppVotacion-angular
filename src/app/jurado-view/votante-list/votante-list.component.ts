@@ -12,6 +12,7 @@ import { element } from 'protractor';
 export class VotanteListComponent implements OnInit {
 
   votanteList: Votante[];
+  search: any;
   constructor(private votanteService: VotanteService) { }
 
   ngOnInit() {
